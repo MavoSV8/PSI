@@ -59,6 +59,15 @@ def new_generation(current_pop):
 
 
 def find_best_specimens(start_pop):
+    print("Start population:")
+    j = 0
+    while j < len(start_pop):
+        if j % 10 == 0:
+            print()
+        print(start_pop[j], end=" ")
+        j += 1
+    print()
+    print()
     binary_pop = to_binary(start_pop)
     cross(binary_pop)
     mutate(binary_pop)
@@ -68,7 +77,26 @@ def find_best_specimens(start_pop):
         binary_pop = to_binary(start_pop)
         cross(binary_pop)
         mutate(binary_pop)
-    print("Final population:\n" + start_pop.__str__())
+        if i % 100 == 0:
+            print("Generacja: {}".format(i))
+            j = 0
+            while j < len(start_pop):
+                if j % 10 == 0:
+                    print()
+                print(start_pop[j], end=" ")
+                j += 1
+            print()
+            print()
+    print("=========================================")
+    print("Final population")
+    j = 0
+    while j < len(start_pop):
+        if j % 10 == 0:
+            print()
+        print(start_pop[j], end=" ")
+        j += 1
+    print()
+    print()
 
 
 population = create_pop()

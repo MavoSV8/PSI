@@ -1,9 +1,10 @@
 class Node:
-    f_score = 99999999999999999999999
+
     def __init__(self, x, y, name):
         self.x = x
         self.y = y
         self.name = name
+        self.f_score = 999999999999
 
     def __str__(self):
         return "{}".format(self.name)

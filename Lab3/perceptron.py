@@ -47,7 +47,7 @@ def trainer(inp, b=bias):
 
 
 def processor(inp):
-    output = bias + weights[0] * inp[0] + weights[1] * weights[1]
+    output = bias + weights[0] * inp[0] + weights[1] * inp[1]
     if output < 0:
         return -1
     else:
@@ -64,18 +64,25 @@ def plot_points(x1, x2, y1, y2):
 generate_data(1000)
 trainingSet, testSet = split_data_to_two_sets()
 generate_weights(2)
-
 counter = 0
-
 for test in testSet:
     if processor(test) == test[2]:
+        x1.append(test[0])
+        y1.append(test[1])
         counter += 1
+    else:
+        x2.append(test[0])
+        y2.append(test[1])
 
+plot_points(x1, x2, y1, y2)
 print("Result before training: {}/{}".format(counter, len(testSet)))
-
 for i in range(len(trainingSet)):
     trainer(trainingSet[i])
-
+counter = 0
+x1 = []
+x2 = []
+y1 = []
+y2 = []
 for test in testSet:
     check = processor(test)
     if check == test[2]:

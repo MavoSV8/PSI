@@ -55,9 +55,6 @@ fuzz_v0_rules = control.ControlSystem(create_rules(distance, angle, initial_velo
 fuzz_v0 = control.ControlSystemSimulation(fuzz_v0_rules)
 
 
-
-print(calculate_initial_velocity(1, 10))
-
 temp_list = []
 for i in range(1, 11):
     print("================")
